@@ -3,9 +3,11 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
+using SSE;
 using TechTalk.SpecFlow;
 
-namespace SSE-AutomationHomeAppliances.AutomationFramework.Utilities
+
+namespace SSE-AutomationHomeAppliances.Utilities
 {
     [Binding]
     public sealed class Hooks
@@ -18,7 +20,7 @@ namespace SSE-AutomationHomeAppliances.AutomationFramework.Utilities
         private static ExtentTest _scenarioName;
         
 
-        public Hooks(LaunchBrowser launchBrowser,ScenarioContext scenarioContext, FeatureContext featureContext)
+        public Hooks(LaunchBrowser _launchBrowser, ScenarioContext scenarioContext, FeatureContext featureContext)
         {
             _featureContext = featureContext;
             _scenarioContext = scenarioContext;
@@ -28,7 +30,7 @@ namespace SSE-AutomationHomeAppliances.AutomationFramework.Utilities
         [BeforeTestRun]
         public static void InitializeReport()
         {
-            var htmlReporter = new ExtentHtmlReporter(@"/KrishnakanthJanga/source/repos/SSE-Automation-HomeAppliances/AutomationFramework/TestResults/TestResult.html");
+            var htmlReporter = new ExtentHtmlReporter(@"/Users/KrishnakanthJanga/source/repos/KRISHNAKANTHJANGA--SSEAIRTRICITY/SSE-AutomationHomeAppliances/Reports/TestResult.html");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             
             _extentReport = new ExtentReports();
@@ -89,7 +91,7 @@ namespace SSE-AutomationHomeAppliances.AutomationFramework.Utilities
             }
             else if (null != exception)
             {
-                var mediaEntity = _browserBase.CaptureScreenshot(_scenarioContext.ScenarioInfo.Title.Trim());
+                var mediaEntity = _launchBrowser.CaptureScreenshot(_scenarioContext.ScenarioInfo.Title.Trim());
                 switch (scenarioBlock)
                 {
                     case ScenarioBlock.Given:
@@ -112,9 +114,8 @@ namespace SSE-AutomationHomeAppliances.AutomationFramework.Utilities
         [AfterScenario]
         public void AfterScenario()
         {
-             _launchBrowser.Driver.Quit();
-             _launchBrowser.Driver = null; // Reset the Driver instance to Null post each scenario
-             _launchBrowser.NoofAppliances = string.Empty; // Reset the Appliancescount to empty string post each scenario
+            _launchBrowser.Driver.Quit();
+            _launchBrowser.Driver = null; // Reset the Driver instance to Null post each scenario            
         }
     }
 }

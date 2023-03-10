@@ -52,7 +52,6 @@ namespace SSE-AutomationHomeAppliances.Framework.Utilities
     {
         Driver = new EdgeDriver();
         {
-            System.setProperty("webdriver.edge.driver", "C:/Program Files (x86)/Microsoft/Edge/Application/msedgedriver.exe");
             Driver.Manage().Window.Maximize();            
         }
      }

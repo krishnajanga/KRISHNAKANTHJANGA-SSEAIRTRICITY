@@ -3,13 +3,12 @@ using System.Runtime.InteropServices;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
-using SSE_Automation_HomeAppliances.Framework.Features;
+using SSE-AutomationHomeAppliances.Features;
 using SeleniumExtras.PageObjects;
 using TechTalk.SpecFlow;
-using SSE;
+using SSE-AutomationHomeAppliances.Utilities;
 
-namespace SSE_Automation_HomeAppliances.Framework.Features
-
+namespace SSE-AutomationHomeAppliances.Pages
 {
     public class HomeAdvice 
     {
@@ -35,6 +34,7 @@ namespace SSE_Automation_HomeAppliances.Framework.Features
 
     #region Methods
 
+
     /// <summary>
     /// Method to check for PageLoad / Sync
     /// </summary>
@@ -42,8 +42,6 @@ namespace SSE_Automation_HomeAppliances.Framework.Features
     public override bool CheckForPageLoad()
         {
             return LaunchBrowser.WaitForElementToBeVisible(SSE_Automation_HomeAppliances.Framework.Features.ElelctricalAppliancescostFeature.Equals(Homepagetext.FindElement(By.XPath("//*[@id=\\\"main\\\"]/div[1]/h1/span\"));
-
-
         }
         
         /// Method to input the data on to the screen
