@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using ExpectedCondition = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace SSE-AutomationHomeAppliances.Framework.Utilities
+namespace SSEAutomationHomeAppliances.Utilities
 {
     public class LaunchBrowser
     {
@@ -20,9 +20,9 @@ namespace SSE-AutomationHomeAppliances.Framework.Utilities
 
      /// Method to launch Browser based on the input passed from feature file
     /// <param name="browserName"></param>
-    public void LaunchBrowser(string browserName)
+    public void LaunchBrowser(string launchBrowser)
     {
-        switch (browserName.ToUpper())
+        switch (launchBrowser.ToUpper())
         {
             case "EDGE":
                 LaunchEdge();

@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
-namespace SSE-AutomationHomeAppliances.Utilities
+namespace SSEAutomationHomeAppliances.Utilities
 {
     public static class WebElementExtensions
     {

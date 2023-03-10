@@ -3,11 +3,10 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
-using SSE;
 using TechTalk.SpecFlow;
 
 
-namespace SSE-AutomationHomeAppliances.Utilities
+namespace SSEAutomationHomeAppliances.Utilities
 {
     [Binding]
     public sealed class Hooks
@@ -20,7 +19,7 @@ namespace SSE-AutomationHomeAppliances.Utilities
         private static ExtentTest _scenarioName;
         
 
-        public Hooks(LaunchBrowser _launchBrowser, ScenarioContext scenarioContext, FeatureContext featureContext)
+        public Hooks(LaunchBrowser launchBrowser, ScenarioContext scenarioContext, FeatureContext featureContext)
         {
             _featureContext = featureContext;
             _scenarioContext = scenarioContext;
@@ -30,7 +29,7 @@ namespace SSE-AutomationHomeAppliances.Utilities
         [BeforeTestRun]
         public static void InitializeReport()
         {
-            var htmlReporter = new ExtentHtmlReporter(@"/Users/KrishnakanthJanga/source/repos/KRISHNAKANTHJANGA--SSEAIRTRICITY/SSE-AutomationHomeAppliances/Reports/TestResult.html");
+            var htmlReporter = new ExtentHtmlReporter(@"C:/Users/KrishnakanthJanga/source/repos/KRISHNAKANTHJANGA-SSEAIRTRICITY/SSEAutomationHomeAppliances/Reports/TestResult.html");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             
             _extentReport = new ExtentReports();

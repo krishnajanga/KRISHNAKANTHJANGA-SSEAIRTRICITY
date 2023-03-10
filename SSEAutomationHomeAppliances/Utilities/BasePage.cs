@@ -3,16 +3,16 @@ using System.Reflection;
 using SeleniumExtras.PageObjects;
 using TechTalk.SpecFlow;
 
-namespace SSE-AutomationHomeAppliances.Utilities
+namespace SSEAutomationHomeAppliances.Utilities
 {
     public abstract class BasePage
     {
         protected LaunchBrowser LaunchBrowser { get; private set; }
-        protected BasePage(LaunchBrowser browser)
+        protected BasePage(LaunchBrowser launchBrowser)
         {
-            if (browser?.Driver != null)
+            if (launchBrowser?.Driver != null)
             { 
-                PageFactory.InitElements(browser.Driver, this);
+                PageFactory.InitElements(launchBrowser.Driver, this);
             }
             LaunchBrowser = launchBrowser;
         }
@@ -27,7 +27,7 @@ namespace SSE-AutomationHomeAppliances.Utilities
         public abstract void ClickOperation(string elementName);
     }
     
-    public static class PropertyManager
+    public static class CitizensAdvice
     {
         /// <summary>
         /// Hold the current Page instance until new page instance is created
@@ -38,17 +38,17 @@ namespace SSE-AutomationHomeAppliances.Utilities
         /// Method to Create a Page Instance using Reflection
         /// </summary>
         /// <param name="pageName"></param>
-        /// <param name="browserBase"></param>
+        /// <param name="launchBrowser"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public static BasePage CreatePageInstance(string pageName, BrowserBase browserBase)
+        public static BasePage CreatePageInstance(string pageName, LaunchBrowser launchBrowser)
         {
             string trimmedPageName = pageName.Replace(" ", string.Empty).Trim();
 
             string assemblyName = Assembly.GetExecutingAssembly().FullName.Split(',')[0];
             string fullPageName = $"{assemblyName}.Pages.{trimmedPageName},{assemblyName}";
 
-            GetCurrentInstance = Activator.CreateInstance(Type.GetType(fullPageName), browserBase) as BasePage;
+            GetCurrentInstance = Activator.CreateInstance(Type.GetType(fullPageName), launchBrowser) as BasePage;
             if (!GetCurrentInstance.GetType().IsSubclassOf(typeof(BasePage)))
             {
                 throw new InvalidOperationException(
