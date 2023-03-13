@@ -6,13 +6,18 @@ using SSEAutomationHomeAppliances.Utilities;
 using SeleniumExtras.PageObjects;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using NUnit.Framework;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using Gherkin.Events.Args.Pickle;
+using OpenQA.Selenium.Chrome;
 
 namespace SSEAutomationHomeAppliances.Pages
 {
     public class HomeAppliances : BasePage
     {
-        private readonly LaunchBrowser _launchBrowser;
-        public HomeAppliances(LaunchBrowser browser) : base(browser)
+        private readonly BrowserBase _launchBrowser;
+        public HomeAppliances(BrowserBase browser) : base(browser)
         {
             _launchBrowser = browser;
         }
@@ -41,7 +46,7 @@ namespace SSEAutomationHomeAppliances.Pages
         private  IWebElement AddAppliancesToListBtn { get; set; }
         
         [FindsBy(How = How.Id, Using = "kwhcost")]
-        private  IWebElement Khw { get; set; } 
+        private  IWebElement kwh { get; set; } 
         #endregion
         
         public override bool CheckForPageLoad()
@@ -49,7 +54,7 @@ namespace SSEAutomationHomeAppliances.Pages
             return LaunchBrowser.WaitForElementToBeVisible(
                 By.XPath("//span[text() = 'Compare how much electrical appliances cost to use']"));
         }
-
+        
         public override void KeyPageData(Table table)
         {
             var appliancesList = table.CreateSet<ApplianceData>();
@@ -61,8 +66,8 @@ namespace SSEAutomationHomeAppliances.Pages
                 element.SelectByIndex(count);
                 Hours.SetInput(appliances.Hours);
                 Mins.SetInput(appliances.mins);
-                if(Khw.Displayed)
-                    Khw.SetInput(appliances.kwh);
+                if(kwh.Displayed)
+                    kwh.SetInput(appliances.kwh);
                 ClickOperation("AddAnAppliance");
                 count++;
             }
@@ -95,18 +100,28 @@ namespace SSEAutomationHomeAppliances.Pages
                 }
             }
         }
-
         public bool CountNumberOfRowsIntable(string value)
         {
             bool rowCountMatch = false;
             IList<IWebElement> tableRows =
                 LaunchBrowser.GetListOfWebElements(By.XPath("//*[@id='appliance_running']/table/tbody/tr"));
-            if(tableRows.Count.Equals(int.Parse(value)))
-           { 
-               rowCountMatch = true;
-           }
-           return rowCountMatch;
-        }
+            if (tableRows.Count.Equals(int.Parse(value)))
+            {
+                rowCountMatch = true;
+            }
+
+            //Identify table to get values
+            IWebElement tempElement;
+            tempElement = LaunchBrowser.Driver.FindElement(By.CssSelector("#appliance_running > table"));
+
+            //TagName to get all <tr> elements
+            IList<IWebElement> ListOfElements = tempElement.FindElements(By.TagName("tr"));
+            foreach (var tableitem in ListOfElements)
+            {
+                Console.WriteLine(tableitem.Text);
+            }
+            return rowCountMatch;
+        }        
     }
 
     public class ApplianceData
@@ -117,3 +132,5 @@ namespace SSEAutomationHomeAppliances.Pages
         public string kwh { get; set; }
     }
 }
+
+

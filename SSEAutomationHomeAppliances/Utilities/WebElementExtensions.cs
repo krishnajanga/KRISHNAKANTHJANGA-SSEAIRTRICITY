@@ -74,7 +74,7 @@ namespace SSEAutomationHomeAppliances.Utilities
                 /// </summary>
                 /// <param name="element"></param>
                 /// <param name="browserBase"></param>
-                public static void MoveToElementByAction(this IWebElement element, LaunchBrowser launchBrowser)
+                public static void MoveToElementByAction(this IWebElement element, BrowserBase launchBrowser)
                 {
                     var action = new Actions(launchBrowser.Driver);
                     action.MoveToElement(element).Build().Perform();

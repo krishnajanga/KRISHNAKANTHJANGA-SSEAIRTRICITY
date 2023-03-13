@@ -85,17 +85,17 @@ namespace SSEAutomationHomeAppliances.Features
                             "our-bills/check-how-much-your-electrical-appliances-cost-to-use/",
                         "Chrome"});
 #line 4
- testRunner.Given("I am resident from England", ((string)(null)), table1, "Given ");
+ testRunner.Given("I am on citizen advice home page", ((string)(null)), table1, "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Home Appliances For England")]
-        [NUnit.Framework.CategoryAttribute("England")]
+        [NUnit.Framework.CategoryAttribute("Sceanrios")]
         public virtual void HomeAppliancesForEngland()
         {
             string[] tagsOfScenario = new string[] {
-                    "England"};
+                    "Sceanrios"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Home Appliances For England", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
@@ -133,42 +133,42 @@ this.FeatureBackground();
                             "Minutes",
                             "KWH"});
                 table2.AddRow(new string[] {
-                            "Air Friyer",
+                            "Air friyer",
                             "1",
                             "10",
                             "34"});
                 table2.AddRow(new string[] {
-                            "Dishwasher",
+                            "Broadband router",
                             "0",
                             "30",
                             ""});
                 table2.AddRow(new string[] {
-                            "Fan heater",
+                            "Dehumidifier",
                             "1",
                             "30",
                             ""});
                 table2.AddRow(new string[] {
-                            "Iron",
+                            "Dishwasher",
                             "1",
                             "00",
                             ""});
                 table2.AddRow(new string[] {
-                            "Oven",
+                            "DVD or Blu-ray Player",
                             "1",
                             "30",
                             ""});
                 table2.AddRow(new string[] {
-                            "TV",
+                            "Electric blanket",
                             "2",
                             "10",
                             ""});
                 table2.AddRow(new string[] {
-                            "Towel rail",
+                            "Electric car charger (wall box)",
                             "1",
                             "10",
                             ""});
                 table2.AddRow(new string[] {
-                            "Toaster",
+                            "Extractor fan",
                             "1",
                             "10",
                             ""});
@@ -189,7 +189,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Home Appliances For Scotland", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 25
+#line 24
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -212,10 +212,10 @@ this.FeatureBackground();
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 26
+#line 25
   testRunner.Given("I am on Compare how much electrical appliances cost to use screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 27
+#line 26
   testRunner.When("I select country as \"Scotland\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -224,50 +224,180 @@ this.FeatureBackground();
                             "Minutes",
                             "KWH"});
                 table3.AddRow(new string[] {
-                            "Air Friyer",
+                            "Air friyer",
+                            "1",
+                            "10",
+                            "67"});
+                table3.AddRow(new string[] {
+                            "Broadband router",
+                            "0",
+                            "30",
+                            ""});
+                table3.AddRow(new string[] {
+                            "Dehumidifier",
                             "1",
                             "30",
-                            "67"});
+                            ""});
                 table3.AddRow(new string[] {
                             "Dishwasher",
                             "1",
-                            "30",
-                            ""});
-                table3.AddRow(new string[] {
-                            "Fan heater",
-                            "2",
-                            "30",
-                            ""});
-                table3.AddRow(new string[] {
-                            "Iron",
-                            "3",
                             "00",
                             ""});
                 table3.AddRow(new string[] {
-                            "Oven",
+                            "DVD or Blu-ray Player",
                             "1",
                             "30",
                             ""});
                 table3.AddRow(new string[] {
-                            "TV",
+                            "Electric blanket",
                             "2",
                             "10",
                             ""});
                 table3.AddRow(new string[] {
-                            "Towel rail",
+                            "Electric car charger (wall box)",
                             "1",
                             "10",
                             ""});
                 table3.AddRow(new string[] {
-                            "Toaster",
-                            "0",
-                            "20",
+                            "Extractor fan",
+                            "1",
+                            "10",
                             ""});
-#line 28
+                table3.AddRow(new string[] {
+                            "Fan heater",
+                            "0",
+                            "15",
+                            ""});
+                table3.AddRow(new string[] {
+                            "Games console",
+                            "0",
+                            "30",
+                            ""});
+#line 27
   testRunner.And("I enter the below list of appliances and click on Add appliance to your list", ((string)(null)), table3, "And ");
 #line hidden
-#line 38
+#line 39
   testRunner.Then("all the \"10\" appliances list should be displayed in the table below.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Home Appliances For Wales")]
+        public virtual void HomeAppliancesForWales()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Home Appliances For Wales", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 41
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line hidden
+#line 42
+  testRunner.Given("I am on Compare how much electrical appliances cost to use screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 43
+  testRunner.When("I select country as \"Wales\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Appliance",
+                            "Hours",
+                            "Minutes",
+                            "KWH"});
+                table4.AddRow(new string[] {
+                            "Air friyer",
+                            "1",
+                            "10",
+                            "67"});
+                table4.AddRow(new string[] {
+                            "Broadband router",
+                            "0",
+                            "30",
+                            ""});
+                table4.AddRow(new string[] {
+                            "Dehumidifier",
+                            "1",
+                            "30",
+                            ""});
+                table4.AddRow(new string[] {
+                            "Dishwasher",
+                            "1",
+                            "00",
+                            ""});
+                table4.AddRow(new string[] {
+                            "DVD or Blu-ray Player",
+                            "1",
+                            "30",
+                            ""});
+#line 44
+  testRunner.And("I enter the below list of appliances and click on Add appliance to your list", ((string)(null)), table4, "And ");
+#line hidden
+#line 51
+  testRunner.Then("all the \"5\" appliances list should be displayed in the table below.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Home Appliances For Northern Ireland")]
+        public virtual void HomeAppliancesForNorthernIreland()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Home Appliances For Northern Ireland", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 53
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line hidden
+#line 54
+  testRunner.Given("I am on Compare how much electrical appliances cost to use screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 55
+  testRunner.When("I select country as \"Northern Ireland\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 56
+  testRunner.Then("I should be displayed with message \"The advice on this website doesn\'t cover Nort" +
+                        "hern Ireland\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

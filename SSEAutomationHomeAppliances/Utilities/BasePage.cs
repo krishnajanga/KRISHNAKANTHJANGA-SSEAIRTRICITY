@@ -7,8 +7,8 @@ namespace SSEAutomationHomeAppliances.Utilities
 {
     public abstract class BasePage
     {
-        protected LaunchBrowser LaunchBrowser { get; private set; }
-        protected BasePage(LaunchBrowser launchBrowser)
+        protected BrowserBase LaunchBrowser { get; private set; }
+        protected BasePage(BrowserBase launchBrowser)
         {
             if (launchBrowser?.Driver != null)
             { 
@@ -41,7 +41,7 @@ namespace SSEAutomationHomeAppliances.Utilities
         /// <param name="launchBrowser"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public static BasePage CreatePageInstance(string pageName, LaunchBrowser launchBrowser)
+        public static BasePage CreatePageInstance(string pageName, BrowserBase launchBrowser)
         {
             string trimmedPageName = pageName.Replace(" ", string.Empty).Trim();
 

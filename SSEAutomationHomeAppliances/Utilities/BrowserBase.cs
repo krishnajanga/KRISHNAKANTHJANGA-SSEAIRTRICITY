@@ -5,13 +5,15 @@ using AventStack.ExtentReports;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using ExpectedCondition = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace SSEAutomationHomeAppliances.Utilities
 {
-    public class LaunchBrowser
+    public class BrowserBase
     {
     /// <summary>
     /// WebDriver instance Variable
@@ -20,9 +22,9 @@ namespace SSEAutomationHomeAppliances.Utilities
 
      /// Method to launch Browser based on the input passed from feature file
     /// <param name="browserName"></param>
-    public void LaunchBrowser(string launchBrowser)
+    public void LaunchBrowser(string browserName)
     {
-        switch (launchBrowser.ToUpper())
+        switch (browserName.ToUpper())
         {
             case "EDGE":
                 LaunchEdge();
@@ -34,8 +36,7 @@ namespace SSEAutomationHomeAppliances.Utilities
     }
 
     
-    /// Method to launch Chrome Browser
-   
+    /// Method to launch Chrome Browser   
     private void LaunchChrome()
     {
         var options = new ChromeOptions();
@@ -50,10 +51,13 @@ namespace SSEAutomationHomeAppliances.Utilities
     //Method to launch Edge Browser
     private void LaunchEdge()
     {
-        Driver = new EdgeDriver();
-        {
-            Driver.Manage().Window.Maximize();            
-        }
+            var service = OpenQA.Selenium.Edge.EdgeDriverService.CreateDefaultService(@"C:/Program Files (x86)/Microsoft/Edge/Application/", @"msedgedriver.exe");
+            service.UseVerboseLogging = true;
+            service.UseSpecCompliantProtocol = true;
+            service.Start();
+            var options = new OpenQA.Selenium.Edge.EdgeOptions();
+            Driver = new RemoteWebDriver(service.ServiceUrl, options);
+            Driver.Manage().Window.Maximize();       
      }
 
     /// Abstract method for Launching URL/URI    

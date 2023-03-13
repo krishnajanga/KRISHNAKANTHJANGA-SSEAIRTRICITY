@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -27,10 +27,6 @@
     <ItemGroup>
       <Compile Remove="Utilities\Utility.cs" />
       <Compile Remove="Utilities\ButtonsPage.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Include="C:\Users\KrishnakanthJanga\source\repos\KRISHNAKANTHJANGA--SSEAIRTRICITY\SSE-AutomationHomeAppliances\Framework\Steps\StepDefinition.cs" Link="StepDefinition.cs" />
     </ItemGroup>
 
     <ItemGroup>

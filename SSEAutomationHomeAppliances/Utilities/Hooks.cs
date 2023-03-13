@@ -13,13 +13,13 @@ namespace SSEAutomationHomeAppliances.Utilities
     {
         private static FeatureContext _featureContext;
         private static ScenarioContext _scenarioContext;
-        private readonly LaunchBrowser _launchBrowser;
+        private readonly BrowserBase _launchBrowser;
         private static ExtentReports _extentReport;
         private static ExtentTest _featureName;
         private static ExtentTest _scenarioName;
         
 
-        public Hooks(LaunchBrowser launchBrowser, ScenarioContext scenarioContext, FeatureContext featureContext)
+        public Hooks(BrowserBase launchBrowser, ScenarioContext scenarioContext, FeatureContext featureContext)
         {
             _featureContext = featureContext;
             _scenarioContext = scenarioContext;
@@ -29,7 +29,7 @@ namespace SSEAutomationHomeAppliances.Utilities
         [BeforeTestRun]
         public static void InitializeReport()
         {
-            var htmlReporter = new ExtentHtmlReporter(@"C:/Users/KrishnakanthJanga/source/repos/KRISHNAKANTHJANGA-SSEAIRTRICITY/SSEAutomationHomeAppliances/Reports/TestResult.html");
+            var htmlReporter = new ExtentHtmlReporter(@"C:/Users/KrishnakanthJanga/source/repos/KRISHNAKANTHJANGA-SSEAIRTRICITY/SSEAutomationHomeAppliances/Reports/index.html");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             
             _extentReport = new ExtentReports();
